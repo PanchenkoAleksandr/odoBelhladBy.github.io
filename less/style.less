@@ -1,0 +1,155 @@
+//variables
+@bg-color: rgba(255, 255, 255, 0); //background-color for sections
+@bg-color-header: rgba(255, 255, 255, 0.8); //background-color for header
+@bg-image-p: url('../img/background-move.png');
+
+.add() {
+    width: 1.5rem;
+    height: 1.5rem;
+    content: "";
+    background-size: cover;
+    display: inherit;
+    margin: 0.5rem;
+}
+
+//styles
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url('../img/background.jpg');
+    background-size: 30rem 30rem;
+
+    header {
+        width: 100%;
+        display: flex;
+        background-color: @bg-color-header;
+        position: fixed;
+        z-index: 1;
+
+        div {
+            margin: auto;
+        }
+
+        .contact {
+            display: flex;
+
+            ul {
+                margin: auto;
+
+                li {
+                    text-decoration: none;
+                    display: inline-flex;
+
+                    &.house {
+                        &:before {
+                            background: url("../img/house.png") no-repeat center center;
+                            .add();
+                        }
+                    }
+
+                    &.mail {
+                        &:before {
+                            background: url("../img/mail.png") no-repeat center center;
+                            .add();
+                        }
+                    }
+
+                    &.tel {
+                        &:before {
+                            background: url("../img/tel.png") no-repeat center center;
+                            .add();
+                        }
+                    }
+                }
+            }
+        }
+
+        h1,
+        h3 {
+            text-align: center;
+        }
+
+
+    }
+
+    aside {
+        padding-left: 20px;
+        width: 15%;
+        float: left;
+        position: fixed;
+        z-index: 1;
+
+        ul {
+            list-style-type: none;
+
+            li {
+                padding-top: 10px;
+            }
+
+            a {
+                text-transform: uppercase;
+                text-decoration: none;
+                font-weight: bold;
+                color: black;
+            }
+        }
+    }
+
+    section {
+        width: 1000px;
+        margin: 0 auto;
+        background-color: @bg-color;
+    }
+
+    footer {
+        background-color: @bg-color;
+        text-align: center;
+    }
+}
+
+//Style for parallax
+.parallax {
+    perspective: 1px;
+    height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.parallax-layer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.parallax-layer-back-back {
+    width: 100vw;
+    height: 100em;
+    transform: translateZ(-11px) scale(12);
+    background-image: url('../img/background-move.png');
+    background-size: 35rem 35rem;
+}
+
+.parallax-layer-back {
+    width: 100vw;
+    height: 100em;
+    transform: translateZ(-4px) scale(8);
+    background-image: url('../img/background-move.png');
+    background-size: 40rem 40rem;
+}
+
+.parallax-layer-base {
+    width: 100vw;
+    height: 100vh;
+    transform: translateZ(0);
+}
+
+.active {
+    font-size: 20px;
+}

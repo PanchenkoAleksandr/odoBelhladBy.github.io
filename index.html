@@ -9,13 +9,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="Ремонт и техническое обслуживание, холодильное оборудование, оборудование общественного питания, поставка запасных частей">
     <link rel="stylesheet" href="style/style.min.css">
+    <!--    <link rel="stylesheet" href="style/mburger.css">-->
+    <!--    <link rel="stylesheet" href="style/mmenu.css">-->
     <script src="script/jQuery3.4.1.js"></script>
+    <!--    <script src="script/mmenu.js"></script>-->
+    <script src="/less/script.js"></script>
     <script src="script/script.min.js"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&onload=jQuery.fn.mapInit" async></script>
+    <!--
+    <script>
+        document.addEventListener(
+            "DOMContentLoaded", () => {
+                new Mmenu("#menu", {
+                    "extensions": [
+                        "fx-menu-slide",
+                        "pagedim-black",
+                        "position-left",
+                        "position-front",
+                        "fx-listitems-slide"
+                    ]
+                });
+            }
+        );
+
+    </script>
+-->
+
+    <!--
+<a href="#menu" class="mburger mburger--collapse" style="position: relative; z-index: 1000;">
+    <b></b>
+    <b></b>
+    <b></b>
+</a>-->
+
 </head>
 
 <body>
+
     <header>
-        <div class="flex-row"><img src="img/logo.png" alt="ОДО Белхлад"></div>
+        <div class="flex-row">
+            <img src="img/logo.png" alt="ОДО Белхлад">
+        </div>
         <div class="flex-row">
             <div class="flex-column">
                 <h1>ОДО "Белхлад"</h1>
@@ -82,6 +116,28 @@
 
             <section id="contacts">
                 <h2>Наши контакты</h2>
+                <div class="cntct">
+                    <div class="flex-row contact">
+                        <ul>
+                            <li class="house">
+                                <div>220136, г.Минск, ул. Бурдейного, 25, оф. 180А</div>
+                            </li><br>
+                            <li class="tel">
+                                <div>+375(17) 365-59-68</div>
+                            </li><br>
+                            <li class="tel">
+                                <div>+375(29) 652-18-85</div>
+                            </li><br>
+                            <li class="tel">
+                                <div>+375(33) 665-57-08</div>
+                            </li><br>
+                            <li class="mail">
+                                <div>belhladby@mail.ru</div>
+                            </li><br>
+                        </ul>
+                    </div>
+                    <div id="map" class="flex-row"></div>
+                </div>
             </section>
 
             <footer>
@@ -90,5 +146,27 @@
         </div>
     </div>
 </body>
+
+<!--
+<nav id="menu">
+    <ul>
+        <li class="active">
+            <a href="#information">О нас</a>
+        </li>
+        <li>
+            <a href="#services">Наши услуги</a>
+        </li>
+        <li>
+            <a href="#partners">Сотрудничество</a>
+        </li>
+        <li>
+            <a href="#contacts">Контакты</a>
+        </li>
+        <li>
+            <button>Отключить scrollingHelp</button>
+        </li>
+    </ul>
+</nav>
+-->
 
 </html>

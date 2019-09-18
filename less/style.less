@@ -12,6 +12,37 @@
     margin: 0.5rem;
 }
 
+.contact() {
+    div{
+        margin: auto;
+    }
+    li {
+        text-decoration: none;
+        display: inline-flex;
+
+        &.house {
+            &:before {
+                background: url("../img/house.png") no-repeat center center;
+                .add();
+            }
+        }
+
+        &.mail {
+            &:before {
+                background: url("../img/mail.png") no-repeat center center;
+                .add();
+            }
+        }
+
+        &.tel {
+            &:before {
+                background: url("../img/tel.png") no-repeat center center;
+                .add();
+            }
+        }
+    }
+}
+
 //styles
 
 * {
@@ -23,57 +54,10 @@ body {
     background-image: url('../img/background.jpg');
     background-size: 30rem 30rem;
 
-    header {
-        width: 100%;
-        display: flex;
-        background-color: @bg-color-header;
-        position: fixed;
-        z-index: 1;
-
-        div {
-            margin: auto;
-        }
-
-        .contact {
-            display: flex;
-
-            ul {
-                margin: auto;
-
-                li {
-                    text-decoration: none;
-                    display: inline-flex;
-
-                    &.house {
-                        &:before {
-                            background: url("../img/house.png") no-repeat center center;
-                            .add();
-                        }
-                    }
-
-                    &.mail {
-                        &:before {
-                            background: url("../img/mail.png") no-repeat center center;
-                            .add();
-                        }
-                    }
-
-                    &.tel {
-                        &:before {
-                            background: url("../img/tel.png") no-repeat center center;
-                            .add();
-                        }
-                    }
-                }
-            }
-        }
-
-        h1,
-        h3 {
-            text-align: center;
-        }
-
-
+    h1,
+    h2,
+    h3 {
+        text-align: center;
     }
 
     aside {
@@ -147,9 +131,46 @@ body {
 .parallax-layer-base {
     width: 100vw;
     height: 100vh;
-    transform: translateZ(0);
 }
 
 .active {
     font-size: 20px;
+}
+
+header {
+    div {
+        margin: auto;
+    }
+
+    width: 100%;
+    display: flex;
+    background-color: @bg-color-header;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    .contact();
+}
+
+#contacts {
+    background-color: @bg-color-header;
+
+    .cntct {
+        display: flex;
+
+        .flex-row {
+            width: 50em;
+            .contact();
+            ul{
+                margin: 5%;
+            }
+        }
+
+        #map {
+            margin: 5%;
+            width: 50em;
+            height: 300px;
+            border: 1px black solid;
+        }
+    }
 }

@@ -5,7 +5,7 @@
             headerHeight = $('header').outerHeight(),
             currentItem = '',
             lastSection = false,
-            scrollingHelp = true;
+            scrollingHelp = true,
 
         headerHeightSet = () => {
                 $('.parallax-layer-base').css('padding-top', headerHeight);
@@ -70,6 +70,30 @@
                 $(this).text('Отключить scrollHelper');
             }
         });
+
+        $.fn.mapInit = () => {
+
+            let mapOption = {
+                    center: [53.903853, 27.447446],
+                    zoom: 16,
+                    controls: ['fullscreenControl', 'zoomControl']
+                },
+                map = new ymaps.Map('map', mapOption),
+                placemark = new ymaps.Placemark(mapOption.center, {
+                    hintContent: 'ОДО Белхлад',
+                    balloonContentHeader: '"ОДО Белхлад',
+                    balloonContentBody: 'Профессиональный ремонт и техническое обслуживание холодильного оборудования и оборудования общественного питания любой сложности',
+                    balloonContentFooter: '220136, г.Минск, ул. Бурдейного, 25, оф. 180А'
+                });
+
+            if (window.innerWidth < 768) {
+                mapOption.behaviors = ['multiTouch'];
+            } else {
+                mapOption.behaviors = ['drag'];
+            }
+
+            map.geoObjects.add(placemark);
+        }
 
     });
 })(jQuery);

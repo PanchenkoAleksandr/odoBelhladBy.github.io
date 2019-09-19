@@ -8,14 +8,19 @@
     <meta name="robots" content="index,follow">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="Ремонт и техническое обслуживание, холодильное оборудование, оборудование общественного питания, поставка запасных частей">
+    <link rel="stylesheet" href="style/all.min.css">
     <link rel="stylesheet" href="style/style.min.css">
-    <!--    <link rel="stylesheet" href="style/mburger.css">-->
-    <!--    <link rel="stylesheet" href="style/mmenu.css">-->
+    <link rel="stylesheet" href="style/owl.carousel.min.css">
+
+    <!--<link rel="stylesheet" href="style/mburger.css">-->
+    <!--<link rel="stylesheet" href="style/mmenu.css">-->
+    <!--<script src="script/mmenu.js"></script>-->
+    <!--<script src="/less/script.js"></script>-->
     <script src="script/jQuery3.4.1.js"></script>
-    <!--    <script src="script/mmenu.js"></script>-->
-    <script src="/less/script.js"></script>
+    <script src="script/owl.carousel.min.js"></script>
     <script src="script/script.min.js"></script>
     <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&onload=jQuery.fn.mapInit" async></script>
+
     <!--
     <script>
         document.addEventListener(
@@ -92,7 +97,7 @@
                 <a href="#contacts">Контакты</a>
             </li>
             <li>
-                <button>Отключить scrollingHelp</button>
+                <button id="switcher">Отключить scrollingHelp</button>
             </li>
         </ul>
     </aside>
@@ -104,10 +109,34 @@
 
             <section id="information">
                 <h2>О нас</h2>
+
             </section>
 
             <section id="services">
-                <h2>Наши услуги</h2>
+                <h2>Наша организация предоставляет широкий спектр услуг:</h2>
+                <div>
+                    <ul>
+                        <li>ремонт и обслуживание торгового холодильного оборудования (шкафы, витрины, камеры и др.)</li>
+                        <li>ремонт чиллеров</li>
+                        <li>ремонт аппаратов шоковой заморозки</li>
+                        <li>ремонт льдогенераторов, фризеров</li>
+                        <li>ремонт осушителей воздуха</li>
+                        <li>ремонт и техническое обслуживание кондиционеров</li>
+                        <li>ремонт теплового оборудования (электрические плиты, сковороды, мармиты, кипятильники и др.)</li>
+                        <li>ремонт механического оборудования (мясорубки, овощерезки, картофелечистки)</li>
+                    </ul>
+                </div>
+                <div class="owl-carousel">
+                    <div class="item">Ремонт и обслуживание торгового холодильного оборудования (шкафы, витрины, камеры и др.)</div>
+                    <div class="item">Ремонт чиллеров</div>
+                    <div class="item">Ремонт аппаратов шоковой заморозки</div>
+                    <div class="item">Ремонт льдогенераторов, фризеров</div>
+                    <div class="item">Ремонт осушителей воздуха</div>
+                    <div class="item">Ремонт и техническое обслуживание кондиционеров</div>
+                    <div class="item">Ремонт теплового оборудования (электрические плиты, сковороды, мармиты, кипятильники и др.)</div>
+                    <div class="item">Ремонт механического оборудования (мясорубки, овощерезки, картофелечистки)</div>
+
+                </div>
             </section>
 
             <section id="partners">

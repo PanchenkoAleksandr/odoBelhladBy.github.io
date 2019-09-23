@@ -1,7 +1,8 @@
 //variables
-@bg-color: rgba(255, 255, 255, 0); //background-color for sections
-@bg-color-header: rgba(255, 255, 255, 0.8); //background-color for header
+@bg-color: rgba(255, 255, 255, 0.5); //background-color for sections
+@bg-color-header: rgba(255, 255, 255, 1); //background-color for header
 @bg-image-p: url('../img/background-move.png');
+@aside-width: 15rem;
 
 .add() {
     width: 1.5rem;
@@ -13,14 +14,21 @@
 }
 
 .contact() {
-    div{
-        margin: auto;
+
+    .contact {
+        display: flex;
+        justify-content: center;
     }
+
     li {
         text-decoration: none;
         display: inline-flex;
 
         &.house {
+            div {
+                margin: auto;
+            }
+
             &:before {
                 background: url("../img/house.png") no-repeat center center;
                 .add();
@@ -28,6 +36,10 @@
         }
 
         &.mail {
+            div {
+                margin: auto;
+            }
+
             &:before {
                 background: url("../img/mail.png") no-repeat center center;
                 .add();
@@ -35,12 +47,23 @@
         }
 
         &.tel {
+            div {
+                margin: auto;
+            }
+
             &:before {
                 background: url("../img/tel.png") no-repeat center center;
                 .add();
             }
         }
     }
+}
+
+.flex() {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 //styles
@@ -58,20 +81,53 @@ body {
     h2,
     h3 {
         text-align: center;
+        padding: .5rem;
+    }
+
+    header {
+        .mmenu {
+            display: none;
+        }
+
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+
+        div {
+            margin: auto;
+        }
+
+        margin-left: @aside-width;
+        width: 84rem;
+        display: flex;
+        background-color: @bg-color-header;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        .contact();
     }
 
     aside {
-        padding-left: 20px;
-        width: 15%;
+        width: @aside-width;
         float: left;
         position: fixed;
         z-index: 1;
 
+        .logo {
+            display: flex;
+
+            img {
+                margin: auto;
+            }
+        }
+
         ul {
+            padding-left: 1rem;
             list-style-type: none;
 
             li {
-                padding-top: 10px;
+                padding-top: 1rem;
             }
 
             a {
@@ -83,10 +139,212 @@ body {
         }
     }
 
+    .active {
+        font-size: 20px;
+    }
+
     section {
-        width: 1000px;
-        margin: 0 auto;
         background-color: @bg-color;
+        margin-left: @aside-width;
+        width: 84rem;
+    }
+
+    //Style for parallax//////////////////////////////////////////////
+    .parallax {
+        perspective: 1px;
+        height: 100vh;
+        width: 100vw;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    .parallax-layer {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+
+    .parallax-layer-back-back {
+        width: 100vw;
+        height: 100em;
+        transform: translateZ(-11px) scale(12);
+        background-image: url('../img/background-move.png');
+        background-size: 35rem 35rem;
+    }
+
+    .parallax-layer-back {
+        width: 100vw;
+        height: 100em;
+        transform: translateZ(-4px) scale(8);
+        background-image: url('../img/background-move.png');
+        background-size: 40rem 40rem;
+    }
+
+    .parallax-layer-base {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    //////////////////////////////////////////////////////
+
+    #services {
+
+        .list {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+
+            ul {
+                list-style-type: none;
+                margin: 0 auto;
+
+                li {
+                    font-size: 15px;
+                    padding: 10px;
+                }
+            }
+        }
+
+        .owl-carousel {
+
+            .item {
+                width: 95%;
+                height: 20rem;
+                margin: 0 auto;
+                background-color: aqua;
+            }
+
+            .owl-dots {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                text-align: center;
+                padding-bottom: 20px;
+
+                button.owl-dot {
+                    display: inline-block;
+                    padding: 0 10px;
+                    opacity: 0.75;
+
+                    &:focus {
+                        outline: none;
+                    }
+
+                    span {
+                        display: inline-block;
+                        width: 20px;
+                        height: 20px;
+                        background: #ddcfcf;
+                        border-radius: 100%;
+                        margin: 10px;
+                        transition: background-color 0.25s;
+                    }
+
+                    &.active span {
+                        background: black;
+                    }
+                }
+            }
+
+            button.owl-prev,
+            button.owl-next {
+                position: absolute;
+                width: 50px;
+                height: 50px;
+                background: #fff;
+                top: 50%;
+                margin-top: -20px;
+                border-radius: 100%;
+                text-align: center;
+                opacity: 0.75;
+                transition: opacity 0.25s;
+
+                &:hover {
+                    opacity: 0.75;
+                }
+
+                &:focus {
+                    outline: none;
+                }
+
+                i {
+                    color: #1d1c1a;
+                    font-size: 40px;
+                    line-height: 40px;
+                }
+            }
+
+            button.owl-prev {
+                left: 25px;
+            }
+
+            button.owl-next {
+                right: 25px;
+            }
+        }
+    }
+
+    #partners {
+        .offers {
+            .flex();
+
+            div:hover {
+                background-color: white;
+                transition: all .5s;
+            }
+
+            ul {
+                text-align: center;
+                list-style-type: none;
+
+                li {
+                    padding: .25rem;
+                }
+            }
+
+            .images {
+                .flex();
+
+                & img {
+                    margin: 5px;
+                    width: 170px;
+                    height: 100px;
+                    border: 1px solid grey;
+                }
+            }
+        }
+
+        .client {
+            .flex();
+
+            & img {
+                margin: 5px;
+                width: 200px;
+                height: 100px;
+                border: 1px solid grey;
+                background-color: white;
+            }
+        }
+    }
+
+    #contacts {
+
+        .contact {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            flex-basis: 35rem;
+            .contact();
+
+        }
+
+        #map {
+            height: 25.5rem;
+        }
     }
 
     footer {
@@ -95,82 +353,63 @@ body {
     }
 }
 
-//Style for parallax
-.parallax {
-    perspective: 1px;
-    height: 100vh;
-    width: 100vw;
-    overflow-x: hidden;
-    overflow-y: auto;
-}
+@media (max-width: 1599px) {
 
-.parallax-layer {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-}
-
-.parallax-layer-back-back {
-    width: 100vw;
-    height: 100em;
-    transform: translateZ(-11px) scale(12);
-    background-image: url('../img/background-move.png');
-    background-size: 35rem 35rem;
-}
-
-.parallax-layer-back {
-    width: 100vw;
-    height: 100em;
-    transform: translateZ(-4px) scale(8);
-    background-image: url('../img/background-move.png');
-    background-size: 40rem 40rem;
-}
-
-.parallax-layer-base {
-    width: 100vw;
-    height: 100vh;
-}
-
-.active {
-    font-size: 20px;
-}
-
-header {
-    div {
-        margin: auto;
+    header,
+    section {
+        width: auto !important;
+        height: auto !important;
     }
 
-    width: 100%;
-    display: flex;
-    background-color: @bg-color-header;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    .contact();
-}
-
-#contacts {
-    background-color: @bg-color-header;
-
-    .cntct {
-        display: flex;
-
-        .flex-row {
-            width: 50em;
-            .contact();
-            ul{
-                margin: 5%;
-            }
+    #map {
+        h2 {
+            display: none;
         }
 
-        #map {
-            margin: 5%;
-            width: 50em;
-            height: 300px;
-            border: 1px black solid;
+        display: flex;
+        flex-direction: column;
+        width: 90% !important;
+        margin: 0 auto;
+        height: 300px !important;
+    }
+}
+
+@media (min-width: 596px) and (max-width: 1286px) {
+    .description {
+        display: none;
+    }
+}
+
+@media (max-width: 595px) {
+
+    aside {
+        display: none;
+    }
+
+    section {
+        margin-left: 0px !important;
+        height: auto !important;
+        width: 90% !important;
+        margin: auto !important;
+    }
+
+    header {
+        margin-left: 0px !important;
+        min-height: 60px;
+        display: inline-flex !important;
+        flex-direction: row !important;
+        width: 100% !important;
+
+        h1,
+        h3,
+        ul {
+            display: none;
+        }
+
+        .mmenu {
+            display: flex !important;
+            position: absolute;
+            margin: auto;
         }
     }
 }

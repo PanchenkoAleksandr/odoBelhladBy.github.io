@@ -7,9 +7,9 @@
             lastSection = false,
             scrollingHelp = true,
 
-        headerHeightSet = () => {
+            parallaPaddingTopSet = () => {
                 $('.parallax-layer-base').css('padding-top', headerHeight);
-                $('aside').css('padding-top', headerHeight);
+                $('.logo').css('height', headerHeight);
                 $('section').css('height', $(document).height() - headerHeight);
             },
 
@@ -19,6 +19,7 @@
                 $('.parallax').animate({
                     scrollTop: offset - headerHeight
                 }, 750);
+                $('.mm-sronly').click();
             },
 
             navigationActive = () => {
@@ -57,18 +58,44 @@
                 }
             };
 
-        $('.parallax-layer-base').css('padding-top', headerHeightSet);
+        $('.owl-carousel').owlCarousel({
+            items: 1,
+            nav: true,
+            navText: ['<i class="fas fa-arrow-left"></i>', '<i class="fas fa-arrow-right"></i>']
+        });
+
+        $('.parallax-layer-base').css('padding-top', parallaPaddingTopSet);
         navigation.find('li a').on('click', navigationClick);
+        $('#menu').find('li a').on('click', navigationClick);
+        
+        //        $('#menu').find('li a').on('click', function (event) {
+        //            let offset = $($(this).attr('href')).position().top;
+        //            event.preventDefault();
+        //            $('.parallax').animate({
+        //                scrollTop: offset - headerHeight
+        //            }, 750);
+        //            $('.mm-sronly').click();
+        //        });
+
         $('.parallax').on('load scroll', navigationActive);
         $(document).bind('mousewheel', navigationScrolling);
-        $('button').on('click', function () {
+        $('#switcher').on('click', function () {
             if (scrollingHelp) {
                 scrollingHelp = false;
                 $(this).text('Включить scrollHelper');
+                $('section').css('height', 'auto');
             } else {
                 scrollingHelp = true;
                 $(this).text('Отключить scrollHelper');
+                $('section').css('height', $(document).height() - headerHeight);
             }
+        });
+
+        $(window).on('load resize', function () {
+            headerHeight = $('header').outerHeight(),
+                $('.parallax-layer-base').css('padding-top', headerHeight);
+            if ($(this).outerWidth() < 1600) scrollingHelp = false;
+            else scrollingHelp = true;
         });
 
         $.fn.mapInit = () => {

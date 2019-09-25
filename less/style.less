@@ -6,6 +6,7 @@
 
 .add() {
     width: 1.5rem;
+    min-width: 25px;
     height: 1.5rem;
     content: "";
     background-size: cover;
@@ -56,6 +57,28 @@
                 .add();
             }
         }
+
+        &.mts {
+            div {
+                margin: auto;
+            }
+
+            &:before {
+                background: url("../img/mts.jpg") no-repeat center center;
+                .add();
+            }
+        }
+
+        &.velcom {
+            div {
+                margin: auto;
+            }
+
+            &:before {
+                background: url("../img/velcom.png") no-repeat center center;
+                .add();
+            }
+        }
     }
 }
 
@@ -85,7 +108,9 @@ body {
     }
 
     header {
-        .mmenu {
+
+        .mmenu,
+        .mobile {
             display: none;
         }
 
@@ -189,20 +214,74 @@ body {
 
     //////////////////////////////////////////////////////
 
+    #information {
+        div {
+            .flex();
+
+            .demo {
+                flex-basis: 33.333%;
+
+                h3 {
+                    display: flex;
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                }
+
+                img {
+                    display: flex;
+                    width: 75%;
+                    height: auto;
+                    margin: auto;
+                }
+            }
+        }
+
+        .help {
+            div {
+                margin: auto;
+
+                h2 {
+                    font-size: 45px;
+                    text-decoration: underline;
+                }
+
+                img {
+                    min-width: 350px;
+                }
+            }
+        }
+    }
+
     #services {
 
         .list {
-            display: flex;
+            display: block;
             flex-direction: row;
             flex-wrap: wrap;
 
             ul {
+                width: 60%;
+                display: flex;
+                flex-direction: column;
                 list-style-type: none;
                 margin: 0 auto;
 
                 li {
-                    font-size: 15px;
-                    padding: 10px;
+                    display: inline-flex;
+                    font-style: oblique;
+                    font-weight: bold;
+
+                    &.repairs {
+                        div {
+                            margin: auto;
+                            margin-left: 0px;
+                        }
+
+                        &:before {
+                            background: url("../img/repairs.png") no-repeat center center;
+                            .add();
+                        }
+                    }
                 }
             }
         }
@@ -211,7 +290,7 @@ body {
 
             .item {
                 width: 95%;
-                height: 20rem;
+                height: 18rem;
                 margin: 0 auto;
                 background-color: aqua;
             }
@@ -374,13 +453,13 @@ body {
     }
 }
 
-@media (min-width: 596px) and (max-width: 1286px) {
+@media (min-width: 769px) and (max-width: 1286px) {
     .description {
         display: none;
     }
 }
 
-@media (max-width: 595px) {
+@media (max-width: 768px) {
 
     aside {
         display: none;
@@ -397,8 +476,10 @@ body {
         margin-left: 0px !important;
         min-height: 60px;
         display: inline-flex !important;
-        flex-direction: row !important;
+        flex-direction: row-reverse !important;
         width: 100% !important;
+        align-content: flex-end;
+        justify-content: flex-end;
 
         h1,
         h3,
@@ -411,5 +492,34 @@ body {
             position: absolute;
             margin: auto;
         }
+
+        .mobile {
+            display: flex !important;
+            position: relative;
+            margin: auto;
+
+            .m-img {
+                max-height: 50px;
+                margin-left: 30px;
+            }
+        }
+    }
+
+    .list {
+        ul {
+            width: 100% !important;
+        }
+
+        margin-bottom: 10px;
+    }
+
+    section {
+        img {
+            min-width: 250px;
+        }
+    }
+
+    body #information .help div h2 {
+        font-size: 25px;
     }
 }

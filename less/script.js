@@ -58,11 +58,11 @@
                 }
             };
 
-        $('.owl-carousel').owlCarousel({
-            items: 1,
-            nav: true,
-            navText: ['<i class="fas fa-arrow-left"></i>', '<i class="fas fa-arrow-right"></i>']
-        });
+//        $('.owl-carousel').owlCarousel({
+//            items: 1,
+//            nav: true,
+//            navText: ['<i class="fas fa-arrow-left"></i>', '<i class="fas fa-arrow-right"></i>']
+//        });
 
         $('.parallax-layer-base').css('padding-top', parallaPaddingTopSet);
         navigation.find('li a').on('click', navigationClick);
@@ -82,11 +82,11 @@
         $('#switcher').on('click', function () {
             if (scrollingHelp) {
                 scrollingHelp = false;
-                $(this).text('Включить scrollHelper');
+                $(this).text('Постраничный scrolling');
                 $('section').css('height', 'auto');
             } else {
                 scrollingHelp = true;
-                $(this).text('Отключить scrollHelper');
+                $(this).text('Классический scrolling');
                 $('section').css('height', $(document).height() - headerHeight);
             }
         });
